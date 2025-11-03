@@ -17,7 +17,7 @@ df = df.sort_values('Angle')
 angles = df['Angle'].values
 if len(angles) > 1:
     # Check if spacing is equal
-    spacing = round(angles[1] - angles[0], 1)
+    spacing = float(round(angles[1] - angles[0], 1))
     equal_spacing = all(abs(round(angles[i] - angles[i-1], 1) - spacing) < 0.1 for i in range(1, len(angles)))
     dg = spacing if equal_spacing else 0.0
 else:
@@ -45,7 +45,7 @@ lines.append("0.0")
 lines.append(str(len(df)))
 
 # Line 7: Distance between luminous intensities per C-plane (Dg)
-lines.append(str(dg))
+lines.append(f"{dg:.1f}")
 
 # Line 8: Measurement report number
 lines.append("Measurement report")
@@ -108,7 +108,7 @@ for _ in range(10):
 lines.append("0.0")
 
 # Line 44: Angles G (Gamma angles)
-gamma_angles_str = " ".join([str(round(a, 1)) for a in df["Angle"]])
+gamma_angles_str = " ".join([f"{a:.1f}" for a in df["Angle"]])
 lines.append(gamma_angles_str)
 
 # Line 45+: Luminous intensity distribution (candela values for each C-plane)
