@@ -6,6 +6,8 @@ ldt_path = "output.ldt"
 
 # CSV einlesen (Komma + Semikolon trennen)
 df = pd.read_csv(csv_path, sep='[;,]', engine='python', header=None)
+# Select only the first 2 columns if there are more
+df = df.iloc[:, :2]
 df.columns = ['Angle', 'Candela']
 
 # Sortieren nach Winkel (für Sicherheit)
