@@ -6,7 +6,7 @@ ldt_path = "output.ldt"
 
 # CSV einlesen (Komma + Semikolon trennen)
 df = pd.read_csv(csv_path, sep='[;,]', engine='python', header=None)
-# Select only the first 2 columns if there are more
+# Select only first 2 columns (Angle, Candela) - additional columns are ignored
 df = df.iloc[:, :2]
 df.columns = ['Angle', 'Candela']
 
