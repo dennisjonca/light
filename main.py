@@ -29,7 +29,7 @@ lines = []
 # Line 1: Company identification
 lines.append("Company/Manufacturer")
 
-# Line 2: Type indicator (1 = point source with no symmetry)
+# Line 2: Type indicator (1 = point source with symmetry)
 lines.append("1")
 
 # Line 3: Symmetry indicator (0 = no symmetry, 1 = symmetry about vertical axis)
